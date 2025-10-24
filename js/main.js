@@ -264,15 +264,10 @@ function calculateCosts() {
     total += insurance;
 
     // 保証会社保証料（初回）
-    const monthlyTotal = rent + maintenance;
+    const monthlyTotal = rent + maintenance + parking;
     const guaranteeFee = Math.floor(monthlyTotal * 0.2); // 初回20%
     costs.push({ name: '保証会社保証料（初回20%）', amount: guaranteeFee });
     total += guaranteeFee;
-
-    // 決済サービス料
-    const serviceFee = 330;
-    costs.push({ name: '決済サービス料', amount: serviceFee });
-    total += serviceFee;
 
     // ペット保証料
     if (petFee) {
