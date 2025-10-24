@@ -75,3 +75,18 @@ python3 -m http.server 8000
 ## ライセンス
 
 © 2024 生活情報館 Co.,Ltd. All Rights Reserved.
+
+## 🌐 公開URL
+
+- **GitHub Pages**: https://privommunity.github.io/nyukyo-guide/
+- **開発サーバー**: http://localhost:8000
+
+## デプロイ方法
+
+GitHubにプッシュすると自動的にGitHub Pagesにデプロイされます。
+
+```bash
+git add .
+git commit -m "更新内容"
+git push origin main
+```
