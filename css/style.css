@@ -712,6 +712,49 @@ body {
     margin-right: 0.5rem;
 }
 
+/* お問い合わせリンク */
+.contact-link-container {
+    background: white;
+    border-radius: 15px;
+    padding: 3rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    max-width: 800px;
+    margin: 3rem auto 0;
+    text-align: center;
+}
+
+.contact-link-description {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.contact-link-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 3rem;
+    background: linear-gradient(135deg, #b8860b 0%, #daa520 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(184, 134, 11, 0.3);
+}
+
+.contact-link-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(184, 134, 11, 0.5);
+    background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+}
+
+.contact-link-button i {
+    font-size: 1.1rem;
+}
+
 /* ========================================
    初期費用シミュレーター
    ======================================== */
