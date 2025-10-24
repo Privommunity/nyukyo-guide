@@ -253,7 +253,7 @@
                     </div>
                     <h3 class="cost-title">仲介手数料</h3>
                     <p class="cost-amount">家賃の〜1ヶ月分+消費税</p>
-                    <p class="cost-description">不動産会社への仲介業務に対する報酬です。法律で上限が定められています。</p>
+                    <p class="cost-description">不動産会社への仲介業務に対する報酬です。</p>
                 </div>
 
                 <div class="cost-card">
@@ -262,7 +262,7 @@
                     </div>
                     <h3 class="cost-title">前家賃</h3>
                     <p class="cost-amount">入居月日割り+翌月分</p>
-                    <p class="cost-description">入居月の日割り家賃と翌月分の家賃を事前にお支払いいただきます。</p>
+                    <p class="cost-description">フリーレント契約の場合、入居月の賃料は発生しません。</p>
                 </div>
 
                 <div class="cost-card">
@@ -270,41 +270,123 @@
                         <i class="fas fa-fire"></i>
                     </div>
                     <h3 class="cost-title">火災保険料</h3>
-                    <p class="cost-amount">15,000〜20,000円程度</p>
-                    <p class="cost-description">火災や水漏れなどの事故に備える保険です。2年契約が一般的です。</p>
-                </div>
-
-                <div class="cost-card">
-                    <div class="cost-icon">
-                        <i class="fas fa-key"></i>
-                    </div>
-                    <h3 class="cost-title">鍵交換費用</h3>
-                    <p class="cost-amount">15,000〜30,000円程度</p>
-                    <p class="cost-description">防犯のため、入居時に鍵を新しいものに交換します。鍵の種類により金額が異なります。</p>
+                    <p class="cost-amount">20,000円程度</p>
+                    <p class="cost-description">火災や水漏れなどの事故に備える保険です。</p>
                 </div>
 
                 <div class="cost-card">
                     <div class="cost-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3 class="cost-title">保証会社利用料</h3>
-                    <p class="cost-amount">家賃の30〜100%</p>
-                    <p class="cost-description">保証会社をご利用の場合に必要です。初回保証料と更新料が発生します。</p>
-                </div>
-
-                <div class="cost-card highlight-card">
-                    <div class="cost-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3 class="cost-title">合計目安</h3>
-                    <p class="cost-amount">家賃の4.5〜6ヶ月分</p>
-                    <p class="cost-description">上記費用を合計すると、おおよそ家賃の4.5〜6ヶ月分が初期費用の目安となります。</p>
+                    <h3 class="cost-title">保証会社保証料（個人）</h3>
+                    <p class="cost-amount">初回：賃料の20%<br>月額：賃料総額の2%</p>
+                    <p class="cost-description">保証会社の審査は必須です。保証会社加入時でも連帯保証人が必要な場合があります。決済サービス料330円が含まれます。</p>
                 </div>
             </div>
 
             <div class="cost-note">
                 <i class="fas fa-exclamation-circle"></i>
-                <p>※上記は一般的な目安です。物件や契約条件により金額は異なります。詳細はお問い合わせください。</p>
+                <p>※保証会社の審査は必須です。保証会社加入時でも連帯保証人が必要な場合があります。</p>
+            </div>
+
+            <!-- 簡易シミュレーション -->
+            <div class="simulator-container">
+                <h3 class="simulator-title">
+                    <i class="fas fa-calculator"></i> 個人向け簡易シミュレーション
+                </h3>
+                <p class="simulator-description">物件情報を入力して初期費用の概算を確認できます。</p>
+
+                <div class="simulator-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="moveInDate">入居開始希望日 <span class="required">必須</span></label>
+                            <input type="date" id="moveInDate" name="moveInDate" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="rent">賃料（円） <span class="required">必須</span></label>
+                            <input type="number" id="rent" name="rent" min="0" placeholder="例: 50000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="maintenance">共益費（円）</label>
+                            <input type="number" id="maintenance" name="maintenance" min="0" placeholder="例: 5000" value="0">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="deposit">敷金（ヶ月）</label>
+                            <input type="number" id="deposit" name="deposit" min="0" step="0.5" placeholder="例: 1" value="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="keyMoney">礼金（ヶ月）</label>
+                            <input type="number" id="keyMoney" name="keyMoney" min="0" step="0.5" placeholder="例: 1" value="1">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="parking">駐車場（円）</label>
+                            <input type="number" id="parking" name="parking" min="0" placeholder="例: 10000" value="0">
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="freeRent" name="freeRent">
+                            <span>フリーレントあり（入居月賃料無料）</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="petFee" name="petFee">
+                            <span>ペット飼育（賃料1ヶ月分をペット保証料として加算）</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="noAgentFee" name="noAgentFee">
+                            <span>仲介手数料無料</span>
+                        </label>
+                    </div>
+
+                    <div class="simulator-button-group">
+                        <button type="button" class="calculate-button" onclick="calculateCosts()">
+                            <i class="fas fa-calculator"></i> 計算する
+                        </button>
+                        <button type="button" class="reset-button" onclick="resetSimulator()">
+                            <i class="fas fa-redo"></i> リセット
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 計算結果 -->
+                <div id="simulatorResult" class="simulator-result" style="display: none;">
+                    <h4 class="result-title">
+                        <i class="fas fa-file-invoice-dollar"></i> 初期費用の概算
+                    </h4>
+                    <div class="result-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>項目</th>
+                                    <th class="text-right">金額（円）</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resultTableBody">
+                                <!-- JavaScript で動的に生成 -->
+                            </tbody>
+                            <tfoot>
+                                <tr class="total-row">
+                                    <td><strong>合計</strong></td>
+                                    <td class="text-right"><strong id="totalCost">¥0</strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <p class="result-note">
+                        <i class="fas fa-info-circle"></i> 
+                        ※上記は概算です。実際の金額は物件や契約条件により異なります。詳細はお問い合わせください。
+                    </p>
+                </div>
             </div>
         </div>
     </section>
