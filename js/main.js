@@ -6,31 +6,63 @@ function updateBusinessStatus() {
     if (!statusElement) return;
 
     const now = new Date();
-    const day = now.getDay(); // 0 = 日曜, 3 = 水曜
+    const day = now.getDay(); // 0 = 日曜, 1 = 月曜, ..., 6 = 土曜
     const hours = now.getHours();
     const minutes = now.getMinutes();
     const currentTime = hours * 60 + minutes;
 
-    // 営業時間: 9:00-18:00, 水曜定休
-    const openTime = 9 * 60; // 9:00 = 540分
-    const closeTime = 18 * 60; // 18:00 = 1080分
+    // 営業時間設定
+    // 平日（月火木金）: 9:00-18:00
+    // 土日: 10:00-16:00
+    // 水曜・祝日: 定休日
+    
+    let openTime, closeTime;
+    let isWeekend = (day === 0 || day === 6); // 日曜または土曜
+    let isWednesday = (day === 3);
+    
+    if (isWeekend) {
+        openTime = 10 * 60; // 10:00
+        closeTime = 16 * 60; // 16:00
+    } else {
+        openTime = 9 * 60; // 9:00
+        closeTime = 18 * 60; // 18:00
+    }
 
     let statusHTML = '<i class="fas fa-circle"></i>';
     let isOpen = false;
 
-    if (day === 3) {
+    if (isWednesday) {
         // 水曜日は定休日
-        statusHTML += '<span class="status-text">ただいま、定休日です（水曜定休）</span>';
+        statusHTML += '<span class="status-text">ただいま、定休日です（水曜・祝日定休）</span>';
         statusElement.className = 'business-status closed';
     } else if (currentTime >= openTime && currentTime < closeTime) {
         // 営業時間内
-        statusHTML += '<span class="status-text">ただいま、営業中です（9:00〜18:00）</span>';
+        if (isWeekend) {
+            statusHTML += '<span class="status-text">ただいま、営業中です（土日 10:00〜16:00）</span>';
+        } else {
+            statusHTML += '<span class="status-text">ただいま、営業中です（平日 9:00〜18:00）</span>';
+        }
         statusElement.className = 'business-status open';
         isOpen = true;
     } else {
         // 営業時間外
-        const nextOpenDay = day === 2 ? '木曜日' : day === 6 ? '月曜日' : '明日';
-        statusHTML += `<span class="status-text">ただいま、営業時間外です（次回: ${nextOpenDay} 9:00〜）</span>`;
+        let nextOpenInfo = '';
+        if (day === 2) {
+            // 火曜日の営業時間外 → 木曜日
+            nextOpenInfo = '木曜日 9:00〜';
+        } else if (day === 6 && currentTime >= closeTime) {
+            // 土曜日の営業終了後 → 日曜日
+            nextOpenInfo = '日曜日 10:00〜';
+        } else if (day === 0 && currentTime >= closeTime) {
+            // 日曜日の営業終了後 → 月曜日
+            nextOpenInfo = '月曜日 9:00〜';
+        } else if (isWeekend) {
+            nextOpenInfo = '本日 10:00〜';
+        } else {
+            nextOpenInfo = '本日 9:00〜';
+        }
+        
+        statusHTML += `<span class="status-text">ただいま、営業時間外です（次回: ${nextOpenInfo}）</span>`;
         statusElement.className = 'business-status closed';
     }
 
