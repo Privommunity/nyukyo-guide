@@ -3,537 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="生活情報館の入居手続きガイド。スムーズな入居のための完全ガイドです。">
-    <title>入居手続きガイド | 生活情報館</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>生活情報館 | CENTURY21 | 宮城県石巻市の不動産</title>
+    <meta name="description" content="宮城県石巻市の不動産会社、生活情報館（CENTURY21）。賃貸・売買物件情報、不動産のことなら何でもご相談ください。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- ヘッダー -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <h1 class="logo">生活情報館</h1>
-                <nav class="nav">
-                    <a href="#flow" class="nav-link">入居の流れ</a>
-                    <a href="#documents" class="nav-link">必要書類</a>
-                    <a href="#costs" class="nav-link">初期費用</a>
-                    <a href="#faq" class="nav-link">よくある質問</a>
-                    <a href="#contact" class="nav-link">お問い合わせ</a>
-                </nav>
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-contact">
+                    <a href="tel:0225939111" class="header-phone">
+                        <i class="fas fa-phone"></i> 0225-93-9111
+                    </a>
+                    <span class="header-hours">営業時間: 9:00〜18:00（水曜定休）</span>
+                </div>
             </div>
         </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <img src="https://www.century21.jp/shop_image/store/163/163001.jpg" alt="生活情報館" class="logo-img">
+                        <div class="logo-text">
+                            <span class="logo-century">CENTURY<span class="logo-21">21</span></span>
+                            <span class="logo-name">生活情報館</span>
+                        </div>
+                    </div>
+                    
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="#home" class="nav-link active">ホーム</a></li>
+                        <li><a href="#services" class="nav-link">事業内容</a></li>
+                        <li><a href="#news" class="nav-link">新着情報</a></li>
+                        <li><a href="guide/" class="nav-link">入居ガイド</a></li>
+                        <li><a href="https://www.century21.jp/inquiry/store/163001-/input" target="_blank" class="nav-link nav-link-contact">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <!-- ヒーローセクション -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">入居手続きガイド</h1>
-                <p class="hero-subtitle">スムーズな入居のための完全ガイド</p>
-                <p class="hero-description">
-                    初めてのお部屋探しでも安心。入居までの流れから必要書類、初期費用まで、<br>
-                    わかりやすくご説明いたします。
-                </p>
-                <a href="#flow" class="hero-button">
-                    <i class="fas fa-arrow-down"></i> 詳しく見る
-                </a>
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <div class="hero-content">
+                    <h1 class="hero-title">あなたの暮らしを<br>もっと豊かに</h1>
+                    <p class="hero-subtitle">宮城県石巻市の不動産のことなら、生活情報館にお任せください</p>
+                    <div class="hero-buttons">
+                        <a href="#services" class="btn btn-primary">
+                            <i class="fas fa-search"></i> 物件を探す
+                        </a>
+                        <a href="guide/" class="btn btn-secondary">
+                            <i class="fas fa-book"></i> 入居ガイド
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 入居までの流れ -->
-    <section id="flow" class="section flow-section">
+    <!-- サービスセクション -->
+    <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-route"></i> 入居までの流れ
-            </h2>
-            <p class="section-description">お問い合わせから入居開始までの6つのステップをご案内します。</p>
+            <div class="section-header">
+                <h2 class="section-title">事業内容<span class="title-en">Our Services</span></h2>
+                <p class="section-description">お客様のニーズに合わせた、様々な不動産サービスをご提供いたします</p>
+            </div>
             
-            <div class="flow-steps">
-                <div class="flow-step">
-                    <div class="step-number">01</div>
-                    <div class="step-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <h3 class="step-title">お問い合わせ・物件紹介</h3>
-                    <p class="step-description">
-                        お電話またはメールにてお気軽にお問い合わせください。ご希望条件をお伺いし、最適な物件をご紹介いたします。
-                    </p>
-                </div>
-
-                <div class="flow-step">
-                    <div class="step-number">02</div>
-                    <div class="step-icon">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
                         <i class="fas fa-home"></i>
                     </div>
-                    <h3 class="step-title">内見・物件説明</h3>
-                    <p class="step-description">
-                        実際に物件をご覧いただき、周辺環境や設備についてご説明いたします。複数物件の内見も可能です。
-                    </p>
+                    <h3 class="service-title">賃貸物件</h3>
+                    <p class="service-description">アパート・マンション・一戸建てなど、豊富な賃貸物件情報をご用意しています</p>
+                    <a href="https://www.century21.jp/store/163001/" target="_blank" class="service-link">
+                        物件を探す <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-
-                <div class="flow-step">
-                    <div class="step-number">03</div>
-                    <div class="step-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3 class="step-title">入居申込</h3>
-                    <p class="step-description">
-                        入居申込書にご記入いただきます。必要書類をご準備ください。この時点ではまだ契約は成立していません。
-                    </p>
-                </div>
-
-                <div class="flow-step">
-                    <div class="step-number">04</div>
-                    <div class="step-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3 class="step-title">入居審査</h3>
-                    <p class="step-description">
-                        オーナー様および保証会社による審査が行われます。通常3〜7日程度お時間をいただきます。
-                    </p>
-                </div>
-
-                <div class="flow-step">
-                    <div class="step-number">05</div>
-                    <div class="step-icon">
-                        <i class="fas fa-pen-nib"></i>
-                    </div>
-                    <h3 class="step-title">契約手続き</h3>
-                    <p class="step-description">
-                        審査通過後、重要事項説明を行い、賃貸借契約を締結いたします。初期費用のお支払いをお願いいたします。
-                    </p>
-                </div>
-
-                <div class="flow-step">
-                    <div class="step-number">06</div>
-                    <div class="step-icon">
-                        <i class="fas fa-key"></i>
-                    </div>
-                    <h3 class="step-title">鍵の受け渡し・入居開始</h3>
-                    <p class="step-description">
-                        ご入居日に鍵をお渡しします。新しい生活のスタートです。入居後も何かございましたらお気軽にご相談ください。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 必要書類 -->
-    <section id="documents" class="section documents-section">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-file-invoice"></i> 必要書類
-            </h2>
-            <p class="section-description">契約形態により必要な書類が異なります。事前にご準備ください。</p>
-            
-            <div class="documents-grid">
-                <!-- 個人契約 -->
-                <div class="document-card">
-                    <div class="document-header">
-                        <i class="fas fa-user"></i>
-                        <h3>個人契約の場合</h3>
-                    </div>
-                    <ul class="document-list">
-                        <li>
-                            <i class="fas fa-check"></i>
-                            <div>
-                                <strong>入居者全員の住民票（原本）</strong>
-                                <span>発行から3ヶ月以内のもの</span>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check"></i>
-                            <div>
-                                <strong>賃借人の身分証明書</strong>
-                                <span>運転免許証、パスポート、マイナンバーカード等</span>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check"></i>
-                            <div>
-                                <strong>賃借人の勤務先証明ができるもの</strong>
-                                <span>保険証、源泉徴収票等</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- 法人契約 -->
-                <div class="document-card">
-                    <div class="document-header">
+                
+                <div class="service-card">
+                    <div class="service-icon">
                         <i class="fas fa-building"></i>
-                        <h3>法人契約の場合</h3>
                     </div>
-                    <ul class="document-list">
-                        <li>
-                            <i class="fas fa-check"></i>
-                            <div>
-                                <strong>法人登記簿謄本（原本）</strong>
-                                <span>発行から3ヶ月以内のもの</span>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check"></i>
-                            <div>
-                                <strong>納税証明書（原本）</strong>
-                                <span>直近年度のもの</span>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check"></i>
-                            <div>
-                                <strong>印鑑証明書（原本）</strong>
-                                <span>発行から3ヶ月以内のもの</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="document-note">
-                        <i class="fas fa-info-circle"></i>
-                        <p>※上記のいずれか1つをご提出ください</p>
-                    </div>
+                    <h3 class="service-title">売買物件</h3>
+                    <p class="service-description">新築・中古の一戸建て、土地、マンションなどの売買物件をご紹介します</p>
+                    <a href="https://www.century21.jp/store/163001/" target="_blank" class="service-link">
+                        物件を探す <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-
-                <!-- 連帯保証人 -->
-                <div class="document-card">
-                    <div class="document-header">
-                        <i class="fas fa-user-friends"></i>
-                        <h3>連帯保証人をつける場合</h3>
-                    </div>
-                    <ul class="document-list">
-                        <li>
-                            <i class="fas fa-check"></i>
-                            <div>
-                                <strong>印鑑証明書</strong>
-                                <span>発行から3ヶ月以内のもの</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="document-note">
-                        <i class="fas fa-info-circle"></i>
-                        <p>保証会社の審査は必須です。保証会社加入時でも連帯保証人が必要な場合があります。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 初期費用 -->
-    <section id="costs" class="section costs-section">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-yen-sign"></i> 初期費用について
-            </h2>
-            <p class="section-description">入居時に必要となる初期費用の目安をご案内します。</p>
-            
-            <div class="costs-container">
-                <div class="cost-card">
-                    <div class="cost-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3 class="cost-title">敷金</h3>
-                    <p class="cost-amount">家賃の1〜2ヶ月分</p>
-                    <p class="cost-description">退去時の原状回復費用や家賃滞納時の補填に充てられます。退去時に精算後、返金されます。</p>
-                </div>
-
-                <div class="cost-card">
-                    <div class="cost-icon">
-                        <i class="fas fa-gift"></i>
-                    </div>
-                    <h3 class="cost-title">礼金</h3>
-                    <p class="cost-amount">家賃の0〜2ヶ月分</p>
-                    <p class="cost-description">オーナー様へのお礼として支払うもので、返金されません。物件により異なります。</p>
-                </div>
-
-                <div class="cost-card">
-                    <div class="cost-icon">
+                
+                <div class="service-card">
+                    <div class="service-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <h3 class="cost-title">仲介手数料</h3>
-                    <p class="cost-amount">家賃の〜1ヶ月分+消費税</p>
-                    <p class="cost-description">不動産会社への仲介業務に対する報酬です。</p>
+                    <h3 class="service-title">売却・査定</h3>
+                    <p class="service-description">不動産の売却をお考えの方、まずは無料査定をご利用ください</p>
+                    <a href="https://www.century21.jp/inquiry/store/163001-/input" target="_blank" class="service-link">
+                        査定依頼 <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-
-                <div class="cost-card">
-                    <div class="cost-icon">
-                        <i class="fas fa-calendar-alt"></i>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
                     </div>
-                    <h3 class="cost-title">前家賃</h3>
-                    <p class="cost-amount">入居月日割り+翌月分</p>
-                    <p class="cost-description">フリーレント契約の場合、入居月の賃料は発生しません。</p>
+                    <h3 class="service-title">リフォーム</h3>
+                    <p class="service-description">住まいのリフォームから、修繕・メンテナンスまで幅広く対応いたします</p>
+                    <a href="https://www.century21.jp/inquiry/store/163001-/input" target="_blank" class="service-link">
+                        ご相談 <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-
-                <div class="cost-card">
-                    <div class="cost-icon">
-                        <i class="fas fa-fire"></i>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clipboard-list"></i>
                     </div>
-                    <h3 class="cost-title">火災保険料</h3>
-                    <p class="cost-amount">20,000円程度</p>
-                    <p class="cost-description">火災や水漏れなどの事故に備える保険です。</p>
+                    <h3 class="service-title">賃貸管理</h3>
+                    <p class="service-description">オーナー様の大切な資産を、しっかりと管理サポートいたします</p>
+                    <a href="https://www.century21.jp/inquiry/store/163001-/input" target="_blank" class="service-link">
+                        詳細を見る <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-
-                <div class="cost-card">
-                    <div class="cost-icon">
-                        <i class="fas fa-shield-alt"></i>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
                     </div>
-                    <h3 class="cost-title">保証会社保証料（個人）</h3>
-                    <p class="cost-amount">初回：賃料の20%<br>月額：賃料総額の2%</p>
-                    <p class="cost-description">保証会社の審査は必須です。保証会社加入時でも連帯保証人が必要な場合があります。決済サービス料330円が含まれます。</p>
-                </div>
-            </div>
-
-            <div class="cost-note">
-                <i class="fas fa-exclamation-circle"></i>
-                <p>※保証会社の審査は必須です。保証会社加入時でも連帯保証人が必要な場合があります。</p>
-            </div>
-
-            <!-- 簡易シミュレーション -->
-            <div class="simulator-container">
-                <h3 class="simulator-title">
-                    <i class="fas fa-calculator"></i> 個人向け簡易シミュレーション
-                </h3>
-                <p class="simulator-description">物件情報を入力して初期費用の概算を確認できます。</p>
-
-                <div class="simulator-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="moveInDate">入居開始希望日 <span class="required">必須</span></label>
-                            <input type="date" id="moveInDate" name="moveInDate" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="rent">賃料（円） <span class="required">必須</span></label>
-                            <input type="number" id="rent" name="rent" min="0" placeholder="例: 50000" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="maintenance">共益費（円）</label>
-                            <input type="number" id="maintenance" name="maintenance" min="0" placeholder="例: 5000" value="0">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="deposit">敷金（ヶ月）</label>
-                            <input type="number" id="deposit" name="deposit" min="0" step="0.5" placeholder="例: 1" value="1">
-                        </div>
-                        <div class="form-group">
-                            <label for="keyMoney">礼金（ヶ月）</label>
-                            <input type="number" id="keyMoney" name="keyMoney" min="0" step="0.5" placeholder="例: 1" value="1">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="parking">駐車場（円）</label>
-                            <input type="number" id="parking" name="parking" min="0" placeholder="例: 10000" value="0">
-                        </div>
-                    </div>
-
-                    <div class="checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="freeRent" name="freeRent">
-                            <span>フリーレントあり（入居月賃料無料）</span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="petFee" name="petFee">
-                            <span>ペット飼育（賃料1ヶ月分をペット保証料として加算）</span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="noAgentFee" name="noAgentFee">
-                            <span>仲介手数料無料</span>
-                        </label>
-                    </div>
-
-                    <div class="simulator-button-group">
-                        <button type="button" class="calculate-button" onclick="calculateCosts()">
-                            <i class="fas fa-calculator"></i> 計算する
-                        </button>
-                        <button type="button" class="reset-button" onclick="resetSimulator()">
-                            <i class="fas fa-redo"></i> リセット
-                        </button>
-                    </div>
-                </div>
-
-                <!-- 計算結果 -->
-                <div id="simulatorResult" class="simulator-result" style="display: none;">
-                    <h4 class="result-title">
-                        <i class="fas fa-file-invoice-dollar"></i> 初期費用の概算
-                    </h4>
-                    <div class="result-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>項目</th>
-                                    <th class="text-right">金額（円）</th>
-                                </tr>
-                            </thead>
-                            <tbody id="resultTableBody">
-                                <!-- JavaScript で動的に生成 -->
-                            </tbody>
-                            <tfoot>
-                                <tr class="total-row">
-                                    <td><strong>合計</strong></td>
-                                    <td class="text-right"><strong id="totalCost">¥0</strong></td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                    <p class="result-note">
-                        <i class="fas fa-info-circle"></i> 
-                        ※上記は概算です。実際の金額は物件や契約条件により異なります。詳細はお問い合わせください。
-                    </p>
+                    <h3 class="service-title">不動産相談</h3>
+                    <p class="service-description">不動産に関するお悩み、どんなことでもお気軽にご相談ください</p>
+                    <a href="https://www.century21.jp/inquiry/store/163001-/input" target="_blank" class="service-link">
+                        相談する <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- よくある質問 -->
-    <section id="faq" class="section faq-section">
+    <!-- 新着情報 -->
+    <section class="news" id="news">
         <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-question-circle"></i> よくある質問
-            </h2>
-            <p class="section-description">入居手続きに関してよくいただく質問をまとめました。</p>
+            <div class="section-header">
+                <h2 class="section-title">新着情報<span class="title-en">News</span></h2>
+            </div>
             
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <i class="fas fa-chevron-down"></i>
-                        <h3>審査にはどのくらい時間がかかりますか？</h3>
-                    </div>
-                    <div class="faq-answer">
-                        <p>通常、入居審査には1〜3日程度お時間をいただいております。ただし、書類の不備や確認事項がある場合、さらにお時間がかかる場合がございます。お急ぎの場合は事前にお申し付けください。</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <i class="fas fa-chevron-down"></i>
-                        <h3>保証人が立てられない場合は？</h3>
-                    </div>
-                    <div class="faq-answer">
-                        <p>原則として保証会社へのご加入が必要となりますので、連帯保証人は不要です。ただし、物件やオーナー様の条件により、保証会社利用の上、連帯保証人が必要となる場合もございます。詳細は物件ごとにご確認ください。</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <i class="fas fa-chevron-down"></i>
-                        <h3>初期費用の分割払いは可能ですか？</h3>
-                    </div>
-                    <div class="faq-answer">
-                        <p>クレジットカード決済による分割払いが可能です。ご希望の場合は、お申込時にお申し付けください。</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <i class="fas fa-chevron-down"></i>
-                        <h3>契約に必要な印鑑は認印でも大丈夫ですか？</h3>
-                    </div>
-                    <div class="faq-answer">
-                        <p>契約者ご本人様は認印でも問題ございません。ただし、連帯保証人様は実印と印鑑証明書が必要となります。</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <i class="fas fa-chevron-down"></i>
-                        <h3>入居日は選べますか？</h3>
-                    </div>
-                    <div class="faq-answer">
-                        <p>契約開始日（入居日）はある程度調整可能です。ただし、物件の空室状況やオーナー様のご都合により、ご希望に添えない場合もございます。お早めにご希望日をお知らせください。</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <i class="fas fa-chevron-down"></i>
-                        <h3>ペットの飼育は可能ですか？</h3>
-                    </div>
-                    <div class="faq-answer">
-                        <p>ペット飼育の可否は物件により異なります。「ペット可」物件でも、飼育できるペットの種類や大きさに制限がある場合があります。また、敷金が高めに設定されることが一般的です。詳細は物件ごとにご確認ください。</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <i class="fas fa-chevron-down"></i>
-                        <h3>契約後のキャンセルは可能ですか？</h3>
-                    </div>
-                    <div class="faq-answer">
-                        <p>契約書に署名・押印し、初期費用をお支払いいただいた後のキャンセルは、原則として違約金が発生します。キャンセル料は契約内容により異なりますので、契約前に重要事項説明をよくお読みください。</p>
-                    </div>
-                </div>
+            <div class="news-list">
+                <article class="news-item">
+                    <time class="news-date">2025.10.25</time>
+                    <span class="news-category category-info">お知らせ</span>
+                    <h3 class="news-title">
+                        <a href="guide/">入居手続きガイドページを公開しました</a>
+                    </h3>
+                </article>
+                
+                <article class="news-item">
+                    <time class="news-date">2025.10.01</time>
+                    <span class="news-category category-property">物件情報</span>
+                    <h3 class="news-title">
+                        <a href="https://www.century21.jp/store/163001/" target="_blank">10月の新着物件情報を更新しました</a>
+                    </h3>
+                </article>
+                
+                <article class="news-item">
+                    <time class="news-date">2025.09.15</time>
+                    <span class="news-category category-info">お知らせ</span>
+                    <h3 class="news-title">
+                        <a href="#">秋の不動産相談会を開催いたします</a>
+                    </h3>
+                </article>
+                
+                <article class="news-item">
+                    <time class="news-date">2025.09.01</time>
+                    <span class="news-category category-property">物件情報</span>
+                    <h3 class="news-title">
+                        <a href="https://www.century21.jp/store/163001/" target="_blank">9月の新着物件情報を更新しました</a>
+                    </h3>
+                </article>
+                
+                <article class="news-item">
+                    <time class="news-date">2025.08.20</time>
+                    <span class="news-category category-info">お知らせ</span>
+                    <h3 class="news-title">
+                        <a href="#">夏季休業のお知らせ（8/13〜8/15）</a>
+                    </h3>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- 注意事項 -->
-    <section class="section notice-section">
+    <!-- 会社情報 -->
+    <section class="company-info">
         <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-exclamation-triangle"></i> ご契約前の注意事項
-            </h2>
-            
-            <div class="notice-grid">
-                <div class="notice-card">
-                    <h3>
-                        <i class="fas fa-clock"></i>
-                        申込から契約までの期間
-                    </h3>
-                    <p>入居申込後、審査を経て契約まで通常1〜2週間程度かかります。引越しシーズン（2〜4月）はさらにお時間をいただく場合がございます。余裕を持ったスケジュールでお申し込みください。</p>
+            <div class="company-grid">
+                <div class="company-card">
+                    <div class="company-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="company-label">会社名</h3>
+                    <p class="company-value">生活情報館</p>
                 </div>
-
-                <div class="notice-card">
-                    <h3>
-                        <i class="fas fa-ban"></i>
-                        キャンセルポリシー
-                    </h3>
-                    <p>入居申込後のキャンセルは、契約前であれば可能ですが、契約書に署名・押印後のキャンセルには違約金が発生します。また、お支払い済みの初期費用から事務手数料等を差し引いた金額の返金となります。</p>
+                
+                <div class="company-card">
+                    <div class="company-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="company-label">所在地</h3>
+                    <p class="company-value">宮城県石巻市</p>
                 </div>
-
-                <div class="notice-card">
-                    <h3>
-                        <i class="fas fa-user-check"></i>
-                        審査基準について
-                    </h3>
-                    <p>入居審査は保証会社とオーナー様の審査に基づいて行われます。審査基準の詳細は弊社では分かりかねますが、物件やオーナー様により異なります。書類に虚偽の記載があった場合、契約後でも解除される場合がございますので、正確な情報をご記入ください。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- お問い合わせ -->
-    <section id="contact" class="section contact-section">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-envelope"></i> お問い合わせ
-            </h2>
-            <p class="section-description">ご不明な点がございましたら、お気軽にお問い合わせください。</p>
-            
-            <div class="contact-info-grid">
-                <div class="contact-info-card">
-                    <div class="contact-icon">
+                
+                <div class="company-card">
+                    <div class="company-icon">
                         <i class="fas fa-phone"></i>
                     </div>
-                    <h3>お電話でのお問い合わせ</h3>
-                    <p class="contact-detail">0225-93-9111</p>
-                    <p class="contact-time">営業時間: 9:00〜18:00（水曜定休）</p>
+                    <h3 class="company-label">電話番号</h3>
+                    <p class="company-value">
+                        <a href="tel:0225939111">0225-93-9111</a>
+                    </p>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="company-label">営業時間</h3>
+                    <p class="company-value">9:00〜18:00<br>（水曜定休）</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="contact-link-container">
-                <p class="contact-link-description">
-                    メールでのお問い合わせは、下記のお問い合わせフォームからお願いいたします。
-                </p>
-                <a href="https://www.century21.jp/inquiry/store/163001-/input" target="_blank" class="contact-link-button">
-                    <i class="fas fa-external-link-alt"></i> お問い合わせフォーム
-                </a>
+    <!-- CTAセクション -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">お気軽にお問い合わせください</h2>
+                <p class="cta-description">物件に関するご質問や、不動産のご相談など、どんなことでもお気軽にお問い合わせください。</p>
+                <div class="cta-buttons">
+                    <a href="tel:0225939111" class="btn btn-cta-primary">
+                        <i class="fas fa-phone"></i> 電話で問い合わせ
+                    </a>
+                    <a href="https://www.century21.jp/inquiry/store/163001-/input" target="_blank" class="btn btn-cta-secondary">
+                        <i class="fas fa-envelope"></i> メールで問い合わせ
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -543,22 +273,50 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h3>生活情報館</h3>
-                    <p>あなたの新しい生活を応援します</p>
+                    <div class="logo-text">
+                        <span class="logo-century">CENTURY<span class="logo-21">21</span></span>
+                        <span class="logo-name">生活情報館</span>
+                    </div>
+                    <p class="footer-tagline">あなたの暮らしをもっと豊かに</p>
                 </div>
+                
                 <div class="footer-links">
-                    <a href="https://www.seikatsujyouhoukan.co.jp/" target="_blank">ホームページ</a>
-                    <a href="#flow">入居の流れ</a>
-                    <a href="#documents">必要書類</a>
-                    <a href="#faq">よくある質問</a>
+                    <h4 class="footer-title">サイトマップ</h4>
+                    <ul class="footer-menu">
+                        <li><a href="#home">ホーム</a></li>
+                        <li><a href="#services">事業内容</a></li>
+                        <li><a href="#news">新着情報</a></li>
+                        <li><a href="guide/">入居ガイド</a></li>
+                        <li><a href="https://www.century21.jp/inquiry/store/163001-/input" target="_blank">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">お問い合わせ</h4>
+                    <ul class="footer-info">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:0225939111">0225-93-9111</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            9:00〜18:00（水曜定休）
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            宮城県石巻市
+                        </li>
+                    </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2024 生活情報館 Co.,Ltd. All Rights Reserved.</p>
+                <p class="copyright">&copy; 2025 生活情報館 CENTURY21. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script src="js/main.js"></script>
 </body>
 </html>

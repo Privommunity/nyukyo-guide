@@ -1,340 +1,187 @@
 // ========================================
-// DOMContentLoaded - ページ読み込み完了時の初期化
+// モバイルメニュー
 // ========================================
 document.addEventListener('DOMContentLoaded', function() {
-    // FAQアコーディオンの初期化
-    initFAQ();
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navMenu = document.getElementById('navMenu');
     
-    // スムーススクロールの設定
-    initSmoothScroll();
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            
+            // アニメーション用のクラス
+            const spans = this.querySelectorAll('span');
+            spans.forEach(span => span.classList.toggle('active'));
+        });
+    }
     
-    // スクロールアニメーションの設定
-    initScrollAnimations();
+    // リンククリック時にメニューを閉じる
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                navMenu.classList.remove('active');
+            }
+        });
+    });
 });
 
 // ========================================
-// FAQアコーディオン機能
+// スムーススクロール
 // ========================================
-function initFAQ() {
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
         
-        question.addEventListener('click', () => {
-            // クリックされた項目のアクティブ状態をトグル
-            const isActive = item.classList.contains('active');
-            
-            // 全てのFAQ項目を閉じる
-            faqItems.forEach(otherItem => {
-                otherItem.classList.remove('active');
-            });
-            
-            // クリックされた項目が閉じていた場合は開く
-            if (!isActive) {
-                item.classList.add('active');
-            }
-        });
-    });
-}
-
-// ========================================
-// スムーススクロール機能
-// ========================================
-function initSmoothScroll() {
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    links.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            
-            // ハッシュのみのリンク（#）は無視
-            if (href === '#') return;
-            
+        // 空のハッシュや単なる#の場合はスキップ
+        if (href === '#' || href === '#!') {
+            return;
+        }
+        
+        const target = document.querySelector(href);
+        if (target) {
             e.preventDefault();
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const targetPosition = target.offsetTop - headerHeight;
             
-            const target = document.querySelector(href);
-            if (target) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
     });
-}
+});
 
 // ========================================
-// スクロールアニメーション
-// ========================================
-function initScrollAnimations() {
-    // Intersection Observer APIを使用してスクロール時のアニメーションを実装
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    
-    // アニメーション対象の要素を設定
-    const animateElements = document.querySelectorAll('.flow-step, .document-card, .cost-card, .faq-item, .notice-card, .contact-info-card');
-    
-    animateElements.forEach((element, index) => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
-        observer.observe(element);
-    });
-}
-
-// ========================================
-// ヘッダーのスクロール時の動作
+// ヘッダーのスクロール効果
 // ========================================
 let lastScroll = 0;
-const header = document.querySelector('.header');
+const header = document.getElementById('header');
 
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', function() {
     const currentScroll = window.pageYOffset;
     
-    // スクロール量が50px以上の場合、ヘッダーに影をつける
-    if (currentScroll > 50) {
-        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+    // 下にスクロールした時
+    if (currentScroll > lastScroll && currentScroll > 100) {
+        header.style.transform = 'translateY(-100%)';
     } else {
-        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        header.style.transform = 'translateY(0)';
     }
     
     lastScroll = currentScroll;
 });
 
+// スタイルの初期設定
+header.style.transition = 'transform 0.3s ease';
+
 // ========================================
-// ページトップへ戻るボタン（オプション）
+// アクティブナビゲーション
 // ========================================
-function createBackToTopButton() {
-    // ボタンの作成
-    const button = document.createElement('button');
-    button.className = 'back-to-top';
-    button.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    button.title = 'ページトップへ';
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function updateActiveNav() {
+    const scrollPosition = window.scrollY + 200;
     
-    // スタイル
-    button.style.cssText = `
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #b8860b 0%, #daa520 100%);
-        color: white;
-        border: none;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s;
-        z-index: 1000;
-        box-shadow: 0 5px 15px rgba(184, 134, 11, 0.4);
-    `;
-    
-    // クリックイベント
-    button.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-    
-    // スクロール時の表示/非表示
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            button.style.opacity = '1';
-            button.style.visibility = 'visible';
-        } else {
-            button.style.opacity = '0';
-            button.style.visibility = 'hidden';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
         }
     });
-    
-    // ボタンを追加
-    document.body.appendChild(button);
 }
 
-// ページトップボタンの初期化
-createBackToTopButton();
+window.addEventListener('scroll', updateActiveNav);
 
 // ========================================
-// 初期費用シミュレーション機能
+// スクロールアニメーション（フェードイン）
 // ========================================
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
 
-// 入居日の最小値を今日に設定
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// アニメーション対象要素
 document.addEventListener('DOMContentLoaded', function() {
-    const moveInDateInput = document.getElementById('moveInDate');
-    if (moveInDateInput) {
-        const today = new Date().toISOString().split('T')[0];
-        moveInDateInput.setAttribute('min', today);
+    const animatedElements = document.querySelectorAll(
+        '.service-card, .news-item, .company-card'
+    );
+    
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+});
+
+// ========================================
+// ページトップに戻るボタン
+// ========================================
+const scrollToTopBtn = document.createElement('button');
+scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+scrollToTopBtn.classList.add('scroll-to-top');
+scrollToTopBtn.style.cssText = `
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--gold);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(190, 175, 136, 0.4);
+    z-index: 999;
+    font-size: 1.2rem;
+`;
+
+document.body.appendChild(scrollToTopBtn);
+
+window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+        scrollToTopBtn.style.opacity = '1';
+        scrollToTopBtn.style.visibility = 'visible';
+    } else {
+        scrollToTopBtn.style.opacity = '0';
+        scrollToTopBtn.style.visibility = 'hidden';
     }
 });
 
-// 初期費用を計算する関数
-function calculateCosts() {
-    // 入力値の取得
-    const moveInDate = document.getElementById('moveInDate').value;
-    const rent = parseInt(document.getElementById('rent').value) || 0;
-    const maintenance = parseInt(document.getElementById('maintenance').value) || 0;
-    const deposit = parseFloat(document.getElementById('deposit').value) || 0;
-    const keyMoney = parseFloat(document.getElementById('keyMoney').value) || 0;
-    const parking = parseInt(document.getElementById('parking').value) || 0;
-    const freeRent = document.getElementById('freeRent').checked;
-    const petFee = document.getElementById('petFee').checked;
-    const noAgentFee = document.getElementById('noAgentFee').checked;
-
-    // バリデーション
-    if (!moveInDate) {
-        showMessage('error', '入居開始希望日を選択してください。');
-        return;
-    }
-    if (rent <= 0) {
-        showMessage('error', '賃料を入力してください。');
-        return;
-    }
-
-    // 計算
-    const costs = [];
-    let total = 0;
-
-    // 敷金
-    const depositAmount = Math.floor(rent * deposit);
-    if (depositAmount > 0) {
-        costs.push({ name: '敷金', amount: depositAmount });
-        total += depositAmount;
-    }
-
-    // 礼金
-    const keyMoneyAmount = Math.floor(rent * keyMoney);
-    if (keyMoneyAmount > 0) {
-        costs.push({ name: '礼金', amount: keyMoneyAmount });
-        total += keyMoneyAmount;
-    }
-
-    // 仲介手数料
-    if (!noAgentFee) {
-        const agentFee = Math.floor(rent * 1.1); // 賃料の1ヶ月分 + 消費税10%
-        costs.push({ name: '仲介手数料', amount: agentFee });
-        total += agentFee;
-    }
-
-    // 前家賃の計算
-    const moveIn = new Date(moveInDate);
-    const daysInMonth = new Date(moveIn.getFullYear(), moveIn.getMonth() + 1, 0).getDate();
-    const remainingDays = daysInMonth - moveIn.getDate() + 1;
-    const dailyRent = rent / daysInMonth;
-    
-    let advanceRent = 0;
-    if (freeRent) {
-        // フリーレントの場合、翌月分のみ
-        advanceRent = rent + maintenance;
-        costs.push({ name: '前家賃（翌月分）', amount: advanceRent });
-    } else {
-        // 日割り + 翌月分
-        const dailyAmount = Math.floor(dailyRent * remainingDays);
-        advanceRent = dailyAmount + maintenance + rent + maintenance;
-        costs.push({ name: `前家賃（日割り${remainingDays}日分+翌月分）`, amount: advanceRent });
-    }
-    total += advanceRent;
-
-    // 駐車場（翌月分も含む）
-    if (parking > 0) {
-        const parkingTotal = parking * 2; // 当月 + 翌月
-        costs.push({ name: '駐車場（2ヶ月分）', amount: parkingTotal });
-        total += parkingTotal;
-    }
-
-    // 火災保険料
-    const insurance = 20000;
-    costs.push({ name: '火災保険料', amount: insurance });
-    total += insurance;
-
-    // 保証会社保証料（初回）
-    const monthlyTotal = rent + maintenance + parking;
-    const guaranteeFee = Math.floor(monthlyTotal * 0.2); // 初回20%
-    costs.push({ name: '保証会社保証料（初回20%）', amount: guaranteeFee });
-    total += guaranteeFee;
-
-    // ペット保証料
-    if (petFee) {
-        const petFeeAmount = rent;
-        costs.push({ name: 'ペット保証料', amount: petFeeAmount });
-        total += petFeeAmount;
-    }
-
-    // 結果を表示
-    displayResults(costs, total);
-}
-
-// 結果を表示する関数
-function displayResults(costs, total) {
-    const resultDiv = document.getElementById('simulatorResult');
-    const tableBody = document.getElementById('resultTableBody');
-    const totalCostEl = document.getElementById('totalCost');
-
-    // テーブルの内容をクリア
-    tableBody.innerHTML = '';
-
-    // 各項目を追加
-    costs.forEach(cost => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${cost.name}</td>
-            <td class="text-right">${formatCurrency(cost.amount)}</td>
-        `;
-        tableBody.appendChild(row);
+scrollToTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
+});
 
-    // 合計を表示
-    totalCostEl.textContent = formatCurrency(total);
+scrollToTopBtn.addEventListener('mouseenter', function() {
+    this.style.background = 'var(--accent-gold)';
+    this.style.transform = 'translateY(-5px)';
+});
 
-    // 結果エリアを表示
-    resultDiv.style.display = 'block';
-
-    // 結果エリアまでスムーススクロール
-    setTimeout(() => {
-        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 100);
-}
-
-// 通貨フォーマット関数
-function formatCurrency(amount) {
-    return '¥' + amount.toLocaleString('ja-JP');
-}
-
-// リセット関数
-function resetSimulator() {
-    // フォームをリセット
-    document.getElementById('moveInDate').value = '';
-    document.getElementById('rent').value = '';
-    document.getElementById('maintenance').value = '0';
-    document.getElementById('deposit').value = '1';
-    document.getElementById('keyMoney').value = '1';
-    document.getElementById('parking').value = '0';
-    document.getElementById('freeRent').checked = false;
-    document.getElementById('petFee').checked = false;
-    document.getElementById('noAgentFee').checked = false;
-
-    // 結果を非表示
-    document.getElementById('simulatorResult').style.display = 'none';
-}
-
-// ========================================
-// コンソールメッセージ
-// ========================================
-console.log('%c生活情報館 入居手続きガイド', 'color: #b8860b; font-size: 20px; font-weight: bold;');
-console.log('%cご不明な点がございましたら、お気軽にお問い合わせください。', 'color: #64748b; font-size: 14px;');
+scrollToTopBtn.addEventListener('mouseleave', function() {
+    this.style.background = 'var(--gold)';
+    this.style.transform = 'translateY(0)';
+});
