@@ -99,8 +99,39 @@ body {
     margin-right: 0.5rem;
 }
 
-.header-hours {
-    color: rgba(255, 255, 255, 0.8);
+/* 営業ステータス */
+.business-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+.business-status i {
+    font-size: 0.7rem;
+    animation: pulse 2s infinite;
+}
+
+.business-status.open i {
+    color: #4ade80;
+}
+
+.business-status.closed i {
+    color: #ef4444;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.status-text {
+    font-size: 0.9rem;
 }
 
 /* ナビゲーション */

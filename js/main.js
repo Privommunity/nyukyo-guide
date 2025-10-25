@@ -1,7 +1,51 @@
 // ========================================
+// 営業時間ステータス表示
+// ========================================
+function updateBusinessStatus() {
+    const statusElement = document.getElementById('businessStatus');
+    if (!statusElement) return;
+
+    const now = new Date();
+    const day = now.getDay(); // 0 = 日曜, 3 = 水曜
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const currentTime = hours * 60 + minutes;
+
+    // 営業時間: 9:00-18:00, 水曜定休
+    const openTime = 9 * 60; // 9:00 = 540分
+    const closeTime = 18 * 60; // 18:00 = 1080分
+
+    let statusHTML = '<i class="fas fa-circle"></i>';
+    let isOpen = false;
+
+    if (day === 3) {
+        // 水曜日は定休日
+        statusHTML += '<span class="status-text">ただいま、定休日です（水曜定休）</span>';
+        statusElement.className = 'business-status closed';
+    } else if (currentTime >= openTime && currentTime < closeTime) {
+        // 営業時間内
+        statusHTML += '<span class="status-text">ただいま、営業中です（9:00〜18:00）</span>';
+        statusElement.className = 'business-status open';
+        isOpen = true;
+    } else {
+        // 営業時間外
+        const nextOpenDay = day === 2 ? '木曜日' : day === 6 ? '月曜日' : '明日';
+        statusHTML += `<span class="status-text">ただいま、営業時間外です（次回: ${nextOpenDay} 9:00〜）</span>`;
+        statusElement.className = 'business-status closed';
+    }
+
+    statusElement.innerHTML = statusHTML;
+}
+
+// ========================================
 // モバイルメニュー
 // ========================================
 document.addEventListener('DOMContentLoaded', function() {
+    // 営業時間ステータスを更新
+    updateBusinessStatus();
+    // 1分ごとに更新
+    setInterval(updateBusinessStatus, 60000);
+
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navMenu = document.getElementById('navMenu');
     
