@@ -374,7 +374,7 @@ body {
    ======================================== */
 .services {
     padding: var(--spacing-xl) 0;
-    background: var(--light-grey);
+    background: var(--white);
 }
 
 .services-grid {
@@ -443,6 +443,7 @@ body {
    ======================================== */
 .news {
     padding: var(--spacing-xl) 0;
+    background: var(--light-grey);
 }
 
 .news-list {
