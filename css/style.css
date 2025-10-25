@@ -474,6 +474,93 @@ body {
 }
 
 /* ========================================
+   CENTURY21について
+   ======================================== */
+.about-century21 {
+    padding: var(--spacing-xl) 0;
+    background: var(--white);
+}
+
+.about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-text {
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-subtitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-grey);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.about-description {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    text-align: justify;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.feature-item {
+    background: var(--light-grey);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--dark-grey);
+    margin-bottom: var(--spacing-xs);
+}
+
+.feature-text {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.about-cta {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+.btn-about {
+    background: linear-gradient(135deg, var(--dark-grey) 0%, var(--accent-dark) 100%);
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-about:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ========================================
    会社情報
    ======================================== */
 .company-info {
