@@ -92,7 +92,7 @@ function initScrollAnimations() {
     animateElements.forEach((element, index) => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(30px)';
-        element.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
+        element.style.transition = `all 0.3s ease-out`;
         observer.observe(element);
     });
 }
