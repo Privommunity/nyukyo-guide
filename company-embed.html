@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会社概要 | 生活情報館 | CENTURY21</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/company.css">
+    
+    <style>
+        /* WIX埋め込み用スタイル調整 */
+        body {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+        }
+        
+        .company-profile {
+            padding-top: 2rem;
+        }
+        
+        /* ページタイトルのスタイル調整 */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #b8900a 100%);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .page-title {
+            color: var(--white);
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .title-en {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        /* モバイル最適化 */
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 1.5rem 0;
+            }
+            
+            .page-title {
+                font-size: 1.5rem;
+            }
+            
+            .title-en {
+                font-size: 0.9rem;
+            }
+            
+            .company-profile {
+                padding-top: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header {
+                padding: 1.2rem 0;
+            }
+            
+            .page-title {
+                font-size: 1.3rem;
+            }
+            
+            .title-en {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ページタイトル -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">会社概要<span class="title-en">Company Profile</span></h1>
+        </div>
+    </section>
+
+    <!-- 会社情報 -->
+    <section class="company-profile">
+        <div class="container">
+            <div class="profile-content">
+                <!-- ロゴ表示 -->
+                <div class="company-logo-section">
+                    <img src="images/logo-century21-white-bg.png" alt="CENTURY21" class="company-logo">
+                </div>
+
+                <!-- 会社情報テーブル -->
+                <div class="profile-table">
+                    <table class="info-table">
+                        <tbody>
+                            <tr>
+                                <th><i class="fas fa-building"></i> 法人格</th>
+                                <td>株式会社生活情報館</td>
+                            </tr>
+                            <tr>
+                                <th><i class="fas fa-user-tie"></i> 代表者</th>
+                                <td>代表取締役　日下 望史（KUSAKA NOZOMU）</td>
+                            </tr>
+                            <tr>
+                                <th><i class="fas fa-map-marker-alt"></i> 所在地</th>
+                                <td>
+                                    〒986-0814<br>
+                                    宮城県石巻市南中里2丁目9-27 2F
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><i class="fas fa-phone"></i> 電話番号</th>
+                                <td><a href="tel:0225939111">0225-93-9111</a></td>
+                            </tr>
+                            <tr>
+                                <th><i class="fas fa-fax"></i> FAX番号</th>
+                                <td>0225-93-9123</td>
+                            </tr>
+                            <tr>
+                                <th><i class="fas fa-clock"></i> 営業時間</th>
+                                <td>
+                                    <strong>平日（月・火・木・金）</strong>: 9:00〜18:00<br>
+                                    <strong>土日</strong>: 10:00〜16:00<br>
+                                    <strong>定休日</strong>: 水曜日・祝日<br>
+                                    <span class="note">※年末年始・お盆・その他臨時休業あり</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><i class="fas fa-certificate"></i> 免許番号</th>
+                                <td>
+                                    <strong>宅地建物取引業</strong><br>
+                                    宮城県知事免許(6)第4823号<br>
+                                    <br>
+                                    <strong>賃貸住宅管理業</strong><br>
+                                    国土交通大臣(1)第4956号<br>
+                                    <br>
+                                    <span class="note">＊グループ企業情報</span><br>
+                                    <strong>建設業</strong><br>
+                                    宮城県知事許可(般-3)第19010号<br>
+                                    <br>
+                                    <strong>一級建築士事務所</strong><br>
+                                    宮城県知事登録21010108号
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><i class="fas fa-handshake"></i> 所属団体</th>
+                                <td>
+                                    公益社団法人 全国宅地建物取引業保証協会<br>
+                                    公益社団法人 東北地区不動産公正取引協議会
+                                </td>
+                            </tr>
+                    
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Google Map -->
+                <div class="map-section">
+                    <h3 class="map-title"><i class="fas fa-map-marked-alt"></i> アクセス</h3>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3128.547!2d141.302!3d38.434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a28c5e5e5e5e5%3A0x5e5e5e5e5e5e5e5e!2z55Sf5rS75oOF5aCx6aSo!5e0!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp"
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <p class="map-note">
+                        <i class="fas fa-info-circle"></i> 
+                        JR仙石線「石巻駅」より徒歩約15分<br>
+                        お車でお越しの際は、店舗敷地内に駐車スペースがございます。
+                    </p>
+                </div>
+
+                <!-- Google マイビジネスへのリンク -->
+                <div class="gmb-link">
+                    <a href="https://maps.app.goo.gl/4pY7Lo6JvpFWSXCrf" target="_blank" class="btn btn-gmb">
+                        <i class="fab fa-google"></i> Googleマイビジネスで詳細を見る
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
