@@ -450,6 +450,22 @@ body {
     margin: 0 auto;
 }
 
+.news-empty {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+    text-align: center;
+}
+
+.news-empty-message {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    padding: var(--spacing-lg);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
 .news-item {
     display: flex;
     align-items: center;
