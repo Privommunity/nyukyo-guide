@@ -2,8 +2,14 @@
 // 営業時間ステータス表示
 // ========================================
 function updateBusinessStatus() {
+    // ヘッダー用の営業ステータス
     const statusElement = document.getElementById('businessStatus');
-    if (!statusElement) return;
+    
+    // 新しいコンパクト営業状況カード
+    const statusCard = document.getElementById('businessStatusCard');
+    const statusIcon = document.getElementById('statusIcon');
+    const statusText = document.getElementById('statusText');
+    const statusDetail = document.getElementById('statusDetail');
 
     const now = new Date();
     const day = now.getDay(); // 0 = 日曜, 1 = 月曜, ..., 6 = 土曜
@@ -11,13 +17,20 @@ function updateBusinessStatus() {
     const minutes = now.getMinutes();
     const currentTime = hours * 60 + minutes;
 
-    // 営業時間設定
-    // 平日（月火木金）: 9:00-18:00
-    // 土日: 10:00-16:00
-    // 水曜・祝日: 定休日
+    // 祝日リスト（2025年）
+    const holidays = [
+        '2025-01-01', '2025-01-13', '2025-02-11', '2025-02-23', '2025-02-24',
+        '2025-03-20', '2025-04-29', '2025-05-03', '2025-05-04', '2025-05-05',
+        '2025-07-21', '2025-08-11', '2025-09-15', '2025-09-23', '2025-10-13',
+        '2025-11-03', '2025-11-23', '2025-11-24'
+    ];
     
+    const today = now.toISOString().split('T')[0];
+    const isHoliday = holidays.includes(today);
+    
+    // 営業時間設定
     let openTime, closeTime;
-    let isWeekend = (day === 0 || day === 6); // 日曜または土曜
+    let isWeekend = (day === 0 || day === 6);
     let isWednesday = (day === 3);
     
     if (isWeekend) {
@@ -28,45 +41,82 @@ function updateBusinessStatus() {
         closeTime = 18 * 60; // 18:00
     }
 
-    let statusHTML = '<i class="fas fa-circle"></i>';
     let isOpen = false;
-
-    if (isWednesday) {
-        // 水曜日は定休日
-        statusHTML += '<span class="status-text">ただいま、定休日です（水曜・祝日定休）</span>';
-        statusElement.className = 'business-status closed';
+    let mainText = '';
+    let detailText = '';
+    
+    if (isWednesday || isHoliday) {
+        // 定休日
+        isOpen = false;
+        mainText = '本日は定休日です';
+        detailText = isHoliday ? '祝日のため休業' : '水曜定休日';
     } else if (currentTime >= openTime && currentTime < closeTime) {
-        // 営業時間内
-        if (isWeekend) {
-            statusHTML += '<span class="status-text">ただいま、営業中です（土日 10:00〜16:00）</span>';
-        } else {
-            statusHTML += '<span class="status-text">ただいま、営業中です（平日 9:00〜18:00）</span>';
-        }
-        statusElement.className = 'business-status open';
+        // 営業中
         isOpen = true;
+        const closeHour = Math.floor(closeTime / 60);
+        mainText = '営業中';
+        detailText = `本日は${closeHour}:00まで営業`;
     } else {
         // 営業時間外
-        let nextOpenInfo = '';
-        if (day === 2) {
-            // 火曜日の営業時間外 → 木曜日
-            nextOpenInfo = '木曜日 9:00〜';
-        } else if (day === 6 && currentTime >= closeTime) {
-            // 土曜日の営業終了後 → 日曜日
-            nextOpenInfo = '日曜日 10:00〜';
-        } else if (day === 0 && currentTime >= closeTime) {
-            // 日曜日の営業終了後 → 月曜日
-            nextOpenInfo = '月曜日 9:00〜';
-        } else if (isWeekend) {
-            nextOpenInfo = '本日 10:00〜';
-        } else {
-            nextOpenInfo = '本日 9:00〜';
-        }
+        isOpen = false;
+        mainText = '営業時間外';
         
-        statusHTML += `<span class="status-text">ただいま、営業時間外です（次回: ${nextOpenInfo}）</span>`;
-        statusElement.className = 'business-status closed';
+        if (currentTime < openTime) {
+            const openHour = Math.floor(openTime / 60);
+            detailText = `本日は${openHour}:00から営業`;
+        } else {
+            // 次の営業日を計算
+            if (day === 6) { // 土曜日
+                detailText = '次回は日曜 10:00から';
+            } else if (day === 0) { // 日曜日
+                detailText = '次回は月曜 9:00から';
+            } else if (day === 2) { // 火曜日
+                detailText = '次回は木曜 9:00から';
+            } else if (day === 5) { // 金曜日
+                detailText = '次回は土曜 10:00から';
+            } else {
+                detailText = '本日の営業は終了しました';
+            }
+        }
     }
 
-    statusElement.innerHTML = statusHTML;
+    // コンパクトカードの更新
+    if (statusCard && statusIcon && statusText && statusDetail) {
+        const indicator = statusCard.querySelector('.status-indicator');
+        
+        if (isOpen) {
+            indicator.className = 'status-indicator open';
+            statusIcon.style.color = '#10b981';
+        } else {
+            indicator.className = 'status-indicator closed';
+            statusIcon.style.color = '#ef4444';
+        }
+        
+        statusText.textContent = mainText;
+        statusDetail.textContent = detailText;
+    }
+
+    // ヘッダー用の更新（既存のコード）
+    if (statusElement) {
+        let statusHTML = '<i class="fas fa-circle"></i>';
+        
+        if (isWednesday || isHoliday) {
+            statusHTML += '<span class="status-text">ただいま、定休日です（水曜・祝日定休）</span>';
+            statusElement.className = 'business-status closed';
+        } else if (isOpen) {
+            if (isWeekend) {
+                statusHTML += '<span class="status-text">ただいま、営業中です（土日 10:00〜16:00）</span>';
+            } else {
+                statusHTML += '<span class="status-text">ただいま、営業中です（平日 9:00〜18:00）</span>';
+            }
+            statusElement.className = 'business-status open';
+        } else {
+            statusHTML += '<span class="status-text">ただいま、営業時間外です</span>';
+            statusElement.className = 'business-status closed';
+        }
+        
+        statusElement.innerHTML = statusHTML;
+    }
 }
 
 // ========================================
