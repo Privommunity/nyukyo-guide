@@ -1022,79 +1022,348 @@ body {
    レスポンシブデザイン
    ======================================== */
 @media (max-width: 768px) {
+    /* 全体のフォントサイズを小さく */
+    html {
+        font-size: 14px;
+    }
+    
+    body {
+        line-height: 1.5;
+    }
+    
+    .container {
+        padding: 0 12px;
+    }
+    
+    /* ヘッダー */
+    .header {
+        padding: 0.75rem 0;
+    }
+    
     .nav {
         display: none;
     }
 
+    /* ヒーロー */
+    .hero {
+        padding: 50px 0;
+    }
+    
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
     }
 
     .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
     }
 
     .hero-description {
-        font-size: 1rem;
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+    
+    .hero-description br {
+        display: none;
+    }
+    
+    .hero-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.875rem;
     }
 
+    /* セクション */
     .section {
-        padding: 50px 0;
+        padding: 2.5rem 0;
     }
 
     .section-title {
-        font-size: 2rem;
+        font-size: 1.4rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .section-description {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
     }
 
+    /* 入居の流れ */
     .flow-steps {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .flow-step {
+        padding: 1.25rem;
+    }
+    
+    .step-number {
+        font-size: 1.5rem;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+    }
+    
+    .step-icon {
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .step-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .step-description {
+        font-size: 0.85rem;
+        line-height: 1.5;
     }
 
+    /* 必要書類 */
     .documents-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .document-card {
+        padding: 1.25rem;
+    }
+    
+    .document-icon {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .document-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .document-list li {
+        font-size: 0.85rem;
+        padding-left: 1.25rem;
+        margin-bottom: 0.5rem;
     }
 
+    /* 初期費用 */
     .costs-container {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
-
-    .notice-grid {
-        grid-template-columns: 1fr;
+    
+    .cost-card {
+        padding: 1.25rem;
     }
-
-    .contact-info-grid {
-        grid-template-columns: 1fr;
+    
+    .cost-icon {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
     }
-
-    .contact-form-container {
-        padding: 2rem;
+    
+    .cost-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
     }
-
-    .form-row {
-        grid-template-columns: 1fr;
+    
+    .cost-amount {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
     }
-
+    
+    .cost-description {
+        font-size: 0.8rem;
+    }
+    
+    /* シミュレーター */
     .simulator-container {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem 1rem;
     }
-
+    
+    .simulator-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .form-group label {
+        font-size: 0.875rem;
+    }
+    
+    .form-group input,
+    .form-group select {
+        font-size: 0.875rem;
+        padding: 0.625rem;
+    }
+    
     .simulator-button-group {
         flex-direction: column;
+        gap: 0.5rem;
     }
 
     .calculate-button,
     .reset-button {
         width: 100%;
         justify-content: center;
+        padding: 0.75rem;
+        font-size: 0.875rem;
+    }
+    
+    .result-section {
+        padding: 1.25rem;
+    }
+    
+    .result-total {
+        font-size: 1.75rem;
+    }
+    
+    .result-item {
+        font-size: 0.875rem;
     }
 
+    /* FAQ */
+    .faq-item {
+        margin-bottom: 0.75rem;
+    }
+    
+    .faq-question {
+        font-size: 0.95rem;
+        padding: 1rem;
+    }
+    
+    .faq-answer {
+        font-size: 0.85rem;
+        padding: 1rem;
+    }
+
+    /* 注意事項 */
+    .notice-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .notice-card {
+        padding: 1.25rem;
+    }
+    
+    .notice-icon {
+        font-size: 1.5rem;
+    }
+    
+    .notice-title {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .notice-description {
+        font-size: 0.85rem;
+    }
+
+    /* お問い合わせ */
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .contact-card {
+        padding: 1.25rem;
+    }
+    
+    .contact-icon {
+        font-size: 2rem;
+    }
+    
+    .contact-title {
+        font-size: 1.1rem;
+    }
+    
+    .contact-text {
+        font-size: 0.875rem;
+    }
+
+    .contact-form-container {
+        padding: 1.5rem 1rem;
+    }
+    
+    .form-title {
+        font-size: 1.2rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .form-group label {
+        font-size: 0.875rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.875rem;
+        padding: 0.625rem;
+    }
+    
+    .submit-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+    }
+
+    /* フッター */
     .footer-content {
         flex-direction: column;
         text-align: center;
+        gap: 1.5rem;
     }
 
     .footer-links {
         justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .footer-link {
+        font-size: 0.85rem;
+    }
+}
+
+/* 小型スマホ対応 */
+@media (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    .hero {
+        padding: 40px 0;
+    }
+    
+    .hero-title {
+        font-size: 1.3rem;
+    }
+    
+    .section {
+        padding: 2rem 0;
+    }
+    
+    .section-title {
+        font-size: 1.25rem;
+    }
+    
+    .flow-step,
+    .document-card,
+    .cost-card,
+    .notice-card,
+    .contact-card {
+        padding: 1rem;
+    }
+    
+    .simulator-container,
+    .contact-form-container {
+        padding: 1.25rem 0.75rem;
     }
 }
 
