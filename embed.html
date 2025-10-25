@@ -22,6 +22,7 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            width: 100%;
         }
         
         /* ヘッダー・フッターを非表示 */
@@ -44,6 +45,7 @@
         /* ヒーローセクションの高さ調整 */
         .hero {
             height: 500px;
+            min-height: 400px;
         }
         
         /* スムーズスクロール無効化（WIX内では不要） */
@@ -54,6 +56,236 @@
         /* リンクのターゲット調整 */
         a[href^="#"] {
             pointer-events: auto;
+        }
+        
+        /* ===================================
+           スマホ最適化（モバイル対応）
+           =================================== */
+        
+        @media (max-width: 768px) {
+            /* コンテナの余白を減らす */
+            .container {
+                padding: 0 15px;
+            }
+            
+            /* ヒーローセクション */
+            .hero {
+                height: 450px;
+                min-height: 350px;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem !important;
+                line-height: 1.3 !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem !important;
+                margin-bottom: 2rem !important;
+            }
+            
+            .hero-buttons {
+                flex-direction: column !important;
+                gap: 0.75rem !important;
+                width: 100% !important;
+            }
+            
+            .hero-buttons .btn {
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 0.875rem 1.5rem !important;
+                font-size: 0.95rem !important;
+            }
+            
+            /* セクションタイトル */
+            .section-title {
+                font-size: 1.75rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+            
+            .title-en {
+                font-size: 0.8rem !important;
+                margin-top: 0.25rem !important;
+            }
+            
+            .section-description {
+                font-size: 0.95rem !important;
+                padding: 0 10px !important;
+            }
+            
+            /* 新着情報 */
+            .news-empty-message {
+                font-size: 1rem !important;
+                padding: 1.5rem !important;
+            }
+            
+            /* 事業内容カード */
+            .services-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.25rem !important;
+            }
+            
+            .service-card {
+                padding: 1.5rem !important;
+            }
+            
+            .service-icon {
+                width: 60px !important;
+                height: 60px !important;
+                font-size: 1.5rem !important;
+                margin-bottom: 1rem !important;
+            }
+            
+            .service-title {
+                font-size: 1.25rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+            
+            .service-description {
+                font-size: 0.9rem !important;
+                line-height: 1.6 !important;
+            }
+            
+            .service-link {
+                font-size: 0.9rem !important;
+            }
+            
+            /* CENTURY21について */
+            .about-subtitle {
+                font-size: 1.4rem !important;
+                margin-bottom: 1.25rem !important;
+            }
+            
+            .about-description {
+                font-size: 0.95rem !important;
+                line-height: 1.8 !important;
+                text-align: left !important;
+                margin-bottom: 1.25rem !important;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+            
+            .feature-item {
+                padding: 1.5rem !important;
+            }
+            
+            .feature-icon {
+                font-size: 2.5rem !important;
+            }
+            
+            .feature-title {
+                font-size: 1.15rem !important;
+            }
+            
+            .feature-text {
+                font-size: 0.85rem !important;
+            }
+            
+            .btn-about {
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 1rem 1.5rem !important;
+                font-size: 0.95rem !important;
+            }
+            
+            /* 会社情報 */
+            .company-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+            
+            .company-card {
+                padding: 1.5rem !important;
+            }
+            
+            .company-icon {
+                font-size: 2rem !important;
+            }
+            
+            .company-label {
+                font-size: 0.85rem !important;
+            }
+            
+            .company-value {
+                font-size: 1rem !important;
+            }
+            
+            /* CTAセクション */
+            .cta-title {
+                font-size: 1.75rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+            
+            .cta-description {
+                font-size: 1rem !important;
+                margin-bottom: 2rem !important;
+            }
+            
+            .cta-buttons {
+                flex-direction: column !important;
+                gap: 0.75rem !important;
+                width: 100% !important;
+            }
+            
+            .cta-buttons .btn {
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 1rem 1.5rem !important;
+                font-size: 0.95rem !important;
+            }
+        }
+        
+        /* 小型スマホ（iPhone SE等） */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
+            }
+            
+            .hero {
+                height: 400px;
+                min-height: 320px;
+            }
+            
+            .hero-title {
+                font-size: 1.5rem !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem !important;
+            }
+            
+            .section-title {
+                font-size: 1.5rem !important;
+            }
+            
+            .service-card,
+            .feature-item,
+            .company-card {
+                padding: 1.25rem !important;
+            }
+            
+            .btn {
+                padding: 0.75rem 1.25rem !important;
+                font-size: 0.9rem !important;
+            }
+        }
+        
+        /* タブレット（横向き） */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            
+            .about-features {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            
+            .company-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
         }
     </style>
 </head>
