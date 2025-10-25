@@ -9,15 +9,15 @@
 
 :root {
     /* Century 21 Colors */
-    --gold: #D1B48C;
-    --dark-grey: #252526;
+    --gold: #D4AA00;
+    --dark-grey: #000000;
     --light-grey: #f5f5f5;
     --white: #ffffff;
     --text-dark: #333333;
     --text-light: #666666;
     
     /* Accent Colors */
-    --accent-gold: #C9A577;
+    --accent-gold: #C29900;
     --accent-dark: #1a1a1b;
     
     /* Spacing */
@@ -166,12 +166,12 @@ body {
 .logo-century {
     font-size: 1.2rem;
     font-weight: 900;
-    color: var(--gold);
+    color: #000000;
     letter-spacing: 1px;
 }
 
 .logo-21 {
-    color: var(--gold);
+    color: #D4AA00;
     font-size: 1.4rem;
 }
 
